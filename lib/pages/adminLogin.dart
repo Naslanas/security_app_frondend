@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:security_app/pages/adminMenu.dart';
 
 class adminLogin extends StatefulWidget {
   const adminLogin({super.key});
@@ -8,6 +9,10 @@ class adminLogin extends StatefulWidget {
 }
 
 class _adminLoginState extends State<adminLogin> {
+  String getUser="",getPass="";
+  TextEditingController user=new TextEditingController();
+  TextEditingController pass=new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +25,7 @@ class _adminLoginState extends State<adminLogin> {
           child: Column(
             children: [
               TextField(
+                controller: user,
                 decoration: InputDecoration(
                     labelText: "Username",
                     hintText: "Enter username",
@@ -28,6 +34,7 @@ class _adminLoginState extends State<adminLogin> {
               ),
               SizedBox(height: 10,),
               TextField(
+                controller: pass,
                 decoration: InputDecoration(
                     labelText: "Password",
                     hintText: "Enter password",
@@ -44,7 +51,14 @@ class _adminLoginState extends State<adminLogin> {
                           borderRadius: BorderRadius.circular(30)
                       )
                   ),
-                      onPressed: (){}, child: Text("Login"))),
+                      onPressed: (){
+                    if(user.text=="admin" && pass.text=="12345"){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>adminMenu()));
+                    }
+                    else{
+                      print("Invalid username or password");
+                    }
+                      }, child: Text("Login"))),
               SizedBox(height: 10,),
               SizedBox(height:50,
                   width:200,
