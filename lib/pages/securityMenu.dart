@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:security_app/pages/add_visitor.dart';
 
 class securityMenu extends StatefulWidget {
   const securityMenu({super.key});
@@ -20,7 +21,10 @@ class _securityMenuState extends State<securityMenu> {
             }, icon:Icon(Icons.arrow_back_rounded) ),
           backgroundColor: Colors.blue.shade700,),
         body: Container(
+          padding: EdgeInsets.all(20),
+          width: double.infinity,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height:50,
                   width:200,
@@ -32,6 +36,7 @@ class _securityMenuState extends State<securityMenu> {
                       )
                   ),
                       onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>addVisitor()));
                       }, child: Text("Add Visitor"))),
             ],
           ),

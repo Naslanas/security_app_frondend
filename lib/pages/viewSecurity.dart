@@ -51,8 +51,8 @@ class _viewSecurityState extends State<viewSecurity> {
                           subtitle: Text("Empid : "+snapshot.data![index].empid.toString()+
                               "\nAddress : "+snapshot.data![index].address.toString()+
                           "\nPhone : "+snapshot.data![index].phone.toString()+
-                          "\nEmail : "+snapshot.data![index].email.toString()+
-                          "\nPassword : "+snapshot.data![index].password.toString()),
+                          "\nEmail : "+snapshot.data![index].email.toString()
+                          ),
                         )
                       ],
                     ),
