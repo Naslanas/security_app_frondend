@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:security_app/pages/add_security.dart';
+import 'package:security_app/pages/viewSecurity.dart';
 
 class adminMenu extends StatefulWidget {
   const adminMenu({super.key});
@@ -48,7 +49,9 @@ class _adminMenuState extends State<adminMenu> {
                           borderRadius: BorderRadius.circular(30)
                       )
                   ),
-                      onPressed: (){}, child: Text("View all Security"))),
+                      onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>viewSecurity()));
+                      }, child: Text("View all Security"))),
               SizedBox(height: 10,),
               SizedBox(height:50,
                   width:200,
