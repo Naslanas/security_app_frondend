@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:security_app/Services/securityService.dart';
+import 'package:security_app/pages/securityMenu.dart';
 
 class securityLogin extends StatefulWidget {
   const securityLogin({super.key});
@@ -19,6 +20,7 @@ class _securityLoginState extends State<securityLogin> {
     final response=await SecurityApiService().LoginApi(getEmail, getPass);
     if(response ["status"]=="success"){
       print("Successfully login");
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>securityMenu()));
     }
     else if(response ["status"]=="Invalid EmailId"){
       print("Invalid EmailId");
