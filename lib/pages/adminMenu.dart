@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:security_app/pages/add_security.dart';
 import 'package:security_app/pages/viewSecurity.dart';
+import 'package:security_app/pages/viewVisitor.dart';
 
 class adminMenu extends StatefulWidget {
   const adminMenu({super.key});
@@ -62,7 +63,9 @@ class _adminMenuState extends State<adminMenu> {
                           borderRadius: BorderRadius.circular(30)
                       )
                   ),
-                      onPressed: (){}, child: Text("View all Visitors"))),
+                      onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>viewVisitor()));
+                      }, child: Text("View all Visitors"))),
             ],
           ),
         ),
