@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:security_app/Services/securityService.dart';
 
 class addSecurity extends StatefulWidget {
   const addSecurity({super.key});
@@ -8,6 +9,28 @@ class addSecurity extends StatefulWidget {
 }
 
 class _addSecurityState extends State<addSecurity> {
+  String Name="",Emp_id="",Address="",Phone="",Email="",Password="";
+  TextEditingController name=new TextEditingController();
+  TextEditingController empid=new TextEditingController();
+  TextEditingController address=new TextEditingController();
+  TextEditingController phone=new TextEditingController();
+  TextEditingController email=new TextEditingController();
+  TextEditingController password=new TextEditingController();
+  void SendValuesToApi() async{
+    final response= await SecurityApiService().sendData(
+        name.text.toString(),
+        empid.text.toString(),
+        address.text.toString(),
+        phone.text.toString(),
+        email.text.toString(),
+        password.text.toString());
+    if(response["status"]=="success"){
+      print("Successfully Added");
+    }
+    else{
+      print("Error....");
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,6 +46,7 @@ class _addSecurityState extends State<addSecurity> {
             child:Column(
               children: [
                 TextField(
+                  controller: name,
                   decoration: InputDecoration(
                       labelText: "Name",
                       hintText: "Enter name",
@@ -31,6 +55,7 @@ class _addSecurityState extends State<addSecurity> {
                 ),
                 SizedBox(height: 10,),
                 TextField(
+                  controller: empid,
                   decoration: InputDecoration(
                       labelText: "Emp_id",
                       hintText: "Enter employee id",
@@ -38,7 +63,7 @@ class _addSecurityState extends State<addSecurity> {
                   ),
                 ),
                 SizedBox(height: 10,),
-                TextField(
+                TextField(controller: address,
                   decoration: InputDecoration(
                       labelText: "Address",
                       hintText: "Enter address",
@@ -46,7 +71,7 @@ class _addSecurityState extends State<addSecurity> {
                   ),
                 ),
                 SizedBox(height: 10,),
-                TextField(
+                TextField(controller: phone,
                   decoration: InputDecoration(
                       labelText: "Phone",
                       hintText: "Enter phone number",
@@ -54,7 +79,7 @@ class _addSecurityState extends State<addSecurity> {
                   ),
                 ),
                 SizedBox(height: 10,),
-                TextField(
+                TextField(controller: email,
                   decoration: InputDecoration(
                       labelText: "Email",
                       hintText: "Enter Email id",
@@ -62,7 +87,7 @@ class _addSecurityState extends State<addSecurity> {
                   ),
                 ),
                 SizedBox(height: 10,),
-                TextField(
+                TextField(controller: password,
                   decoration: InputDecoration(
                       labelText: "Password",
                       hintText: "Enter password",
@@ -80,7 +105,7 @@ class _addSecurityState extends State<addSecurity> {
                                 borderRadius: BorderRadius.circular(30)
                             )
                         ),
-                        onPressed: (){}, child: Text("Add"))),
+                        onPressed: SendValuesToApi, child: Text("Add"))),
                 SizedBox(height: 10,),
                 SizedBox(height:50,
                     width:200,
