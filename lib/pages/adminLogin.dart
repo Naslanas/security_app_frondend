@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:security_app/pages/adminMenu.dart';
+import 'package:security_app/pages/securityLogin.dart';
 
 class adminLogin extends StatefulWidget {
   const adminLogin({super.key});
@@ -70,7 +71,9 @@ class _adminLoginState extends State<adminLogin> {
                               borderRadius: BorderRadius.circular(30)
                           )
                       ),
-                      onPressed: (){}, child: Text("Security Login")))
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>securityLogin()));
+                      }, child: Text("Security Login")))
             ],
           ),
         ),
