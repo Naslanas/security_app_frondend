@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:security_app/Services/securityService.dart';
 
 class securityLogin extends StatefulWidget {
   const securityLogin({super.key});
@@ -8,6 +9,24 @@ class securityLogin extends StatefulWidget {
 }
 
 class _securityLoginState extends State<securityLogin> {
+  String getEmail="",getPass="";
+  TextEditingController email=new TextEditingController();
+  TextEditingController pass=new TextEditingController();
+
+  void SendApi()async{
+    getEmail=email.text;
+    getPass=pass.text;
+    final response=await SecurityApiService().LoginApi(getEmail, getPass);
+    if(response ["status"]=="success"){
+      print("Successfully login");
+    }
+    else if(response ["status"]=="Invalid EmailId"){
+      print("Invalid EmailId");
+    }
+    else{
+      print("Invalid password");
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,6 +40,7 @@ class _securityLoginState extends State<securityLogin> {
             child:
             Column(children: [
               TextField(
+                controller: email,
                 decoration: InputDecoration(
                     labelText: "Email",
                     hintText: "Enter email id",
@@ -28,7 +48,7 @@ class _securityLoginState extends State<securityLogin> {
                 ),
               ),
               SizedBox(height: 10,),
-              TextField(
+              TextField(controller: pass,
                 decoration: InputDecoration(
                     labelText: "Password",
                     hintText: "Enter password",
@@ -46,7 +66,7 @@ class _securityLoginState extends State<securityLogin> {
                               borderRadius: BorderRadius.circular(30)
                           )
                       ),
-                      onPressed: (){}, child: Text("Login"))),
+                      onPressed: SendApi, child: Text("Login"))),
               SizedBox(height: 10,),
               SizedBox(height:50,
                   width:200,
