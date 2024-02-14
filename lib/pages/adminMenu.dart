@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:security_app/pages/add_security.dart';
+import 'package:security_app/pages/viewSecurity.dart';
 
 class adminMenu extends StatefulWidget {
   const adminMenu({super.key});
@@ -12,7 +14,13 @@ class _adminMenuState extends State<adminMenu> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(backgroundColor: Colors.blue.shade700,),
+        appBar: AppBar(leading: IconButton(style: IconButton.styleFrom(
+          foregroundColor: Colors.white
+        ),
+            onPressed: (){
+          Navigator.pop(context);
+        }, icon:Icon(Icons.arrow_back_rounded) ),
+          backgroundColor: Colors.blue.shade700,),
         body: Container(
           padding: EdgeInsets.all(20),
           width: double.infinity,
@@ -28,7 +36,9 @@ class _adminMenuState extends State<adminMenu> {
                           borderRadius: BorderRadius.circular(30)
                       )
                   ),
-                      onPressed: (){}, child: Text("Add Security"))),
+                      onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>addSecurity()));
+                      }, child: Text("Add Security"))),
               SizedBox(height: 10,),
               SizedBox(height:50,
                   width:200,
@@ -39,7 +49,9 @@ class _adminMenuState extends State<adminMenu> {
                           borderRadius: BorderRadius.circular(30)
                       )
                   ),
-                      onPressed: (){}, child: Text("View all Security"))),
+                      onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>viewSecurity()));
+                      }, child: Text("View all Security"))),
               SizedBox(height: 10,),
               SizedBox(height:50,
                   width:200,
