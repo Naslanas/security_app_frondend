@@ -5,7 +5,7 @@ import 'package:security_app/Models/securityModel.dart';
 class SecurityApiService{
   Future<dynamic>LoginApi(String email,String password)async{
     var client=http.Client();
-    var apiurl=Uri.parse("http://localhost:3001/api/securityapp/loginsecurity");
+    var apiurl=Uri.parse("http://172.16.183.223:3001/api/securityapp/loginsecurity");
     var response=await client.post(apiurl,
     headers: <String,String>{
       "Content-Type":"application/json;charset=UTF-8"
@@ -25,7 +25,7 @@ class SecurityApiService{
   
   Future<List<Security>>getSecurity() async{
     var client=http.Client();
-    var apiUrl=Uri.parse("http://localhost:3001/api/securityapp/viewsecurity");
+    var apiUrl=Uri.parse("http://172.16.183.223:3001/api/securityapp/viewsecurity");
     var response= await client.post(apiUrl);
     if(response.statusCode==200){
       return securityFromJson(response.body);
@@ -37,7 +37,7 @@ class SecurityApiService{
   
   Future<dynamic>sendData(String name ,String Emp_id,String address,String phone,String email,String password)async{
     var client=http.Client();
-    var apiUrl=Uri.parse("http://localhost:3001/api/securityapp/regsecurity");
+    var apiUrl=Uri.parse("http://172.16.183.223:3001/api/securityapp/regsecurity");
     var response=await client.post(apiUrl,
     headers: <String,String>{
       "Content-Type":"application/json;charset=UTF-8"

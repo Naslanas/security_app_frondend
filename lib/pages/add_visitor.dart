@@ -33,75 +33,77 @@ class _addVisitorState extends State<addVisitor> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue.shade700,
-          title: Text("Add Security",style: TextStyle(color: Colors.white),),
+          title: Text("Add Visitor",style: TextStyle(color: Colors.white),),
         ),
-        body: Container(
-          child: Column(
-            children: [
-              TextField(
-                controller: name,
-                decoration: InputDecoration(
-                    labelText: "Name",
-                    hintText: "Enter name",
-                    border: OutlineInputBorder()
+        body: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: [
+                TextField(
+                  controller: name,
+                  decoration: InputDecoration(
+                      labelText: "Name",
+                      hintText: "Enter name",
+                      border: OutlineInputBorder()
+                  ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              TextField(
-                controller: address,
-                decoration: InputDecoration(
-                    labelText: "Address",
-                    hintText: "Enter address",
-                    border: OutlineInputBorder()
+                SizedBox(height: 10,),
+                TextField(
+                  controller: address,
+                  decoration: InputDecoration(
+                      labelText: "Address",
+                      hintText: "Enter address",
+                      border: OutlineInputBorder()
+                  ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              TextField(
-                controller: phone,
-                decoration: InputDecoration(
-                    labelText: "phone",
-                    hintText: "Enter phone",
-                    border: OutlineInputBorder()
+                SizedBox(height: 10,),
+                TextField(
+                  controller: phone,
+                  decoration: InputDecoration(
+                      labelText: "phone",
+                      hintText: "Enter phone",
+                      border: OutlineInputBorder()
+                  ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              TextField(
-                controller: purpose,
-                decoration: InputDecoration(
-                    labelText: "Purpose",
-                    hintText: "Enter purpose",
-                    border: OutlineInputBorder()
+                SizedBox(height: 10,),
+                TextField(
+                  controller: purpose,
+                  decoration: InputDecoration(
+                      labelText: "Purpose",
+                      hintText: "Enter purpose",
+                      border: OutlineInputBorder()
+                  ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              SizedBox(height:50,
-                  width:200,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue.shade700,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)
-                          )
-                      ),
-                      onPressed: SendvaluesToApi, child: Text("Add Visitor"))),
-              SizedBox(height: 10,),
-              SizedBox(height:50,
-                  width:200,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue.shade700,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)
-                          )
-                      ),
-                      onPressed: (){
-                        Navigator.pop(context);
-                      }, child: Text("Back")))
-
-
-            ],
+                SizedBox(height: 10,),
+                SizedBox(height:50,
+                    width:200,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue.shade700,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30)
+                            )
+                        ),
+                        onPressed: SendvaluesToApi, child: Text("Add Visitor"))),
+                SizedBox(height: 10,),
+                SizedBox(height:50,
+                    width:200,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue.shade700,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30)
+                            )
+                        ),
+                        onPressed: (){
+                          Navigator.pop(context);
+                        }, child: Text("Back")))
+          
+          
+              ],
+            ),
           ),
         ),
       ),

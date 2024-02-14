@@ -1,4 +1,7 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:security_app/pages/adminMenu.dart';
 import 'package:security_app/pages/securityLogin.dart';
 
@@ -25,6 +28,8 @@ class _adminLoginState extends State<adminLogin> {
           width: double.infinity,
           child: Column(
             children: [
+              SvgPicture.asset("assets/live.svg",height: 200,width: 200,),
+              SizedBox(height: 10,),
               TextField(
                 controller: user,
                 decoration: InputDecoration(
@@ -35,6 +40,7 @@ class _adminLoginState extends State<adminLogin> {
               ),
               SizedBox(height: 10,),
               TextField(
+                obscureText: true,
                 controller: pass,
                 decoration: InputDecoration(
                     labelText: "Password",
